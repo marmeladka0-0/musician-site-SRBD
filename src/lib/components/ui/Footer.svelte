@@ -1,0 +1,55 @@
+<script>
+	import Icon from '@iconify/svelte';
+	const links = [
+		{ href: 'https://youtube.com/@bogdannesterenko7139', icon: 'mdi:youtube', label: 'YouTube' },
+		{
+			href: 'https://www.instagram.com/bogdannesterenko74',
+			icon: 'mdi:instagram',
+			label: 'Instagram'
+		},
+		{
+			href: 'https://www.linkedin.com/in/bogdan-nesterenko-29774975/',
+			icon: 'mdi:linkedin',
+			label: 'LinkedIn'
+		},
+		{ href: 'https://facebook.com/yourprofile', icon: 'mdi:facebook', label: 'Facebook' },
+		{
+			href: 'https://open.spotify.com/artist/4rbrZcsGjag5jTFXqqNAvG?si=F5a48sF7QgCF-dWPdnqmDg',
+			icon: 'mdi:spotify',
+			label: 'Spotify'
+		}
+	];
+</script>
+
+<footer
+	class="flex w-full justify-center border-t border-white/10 bg-black/20 py-10 backdrop-blur-xl"
+>
+	<div class="flex max-w-5xl flex-col gap-6 px-4">
+		<div class="flex flex-wrap justify-center">
+			<nav class="flex flex-wrap justify-center gap-1">
+				{#each links as link (link.href)}
+					<a
+						href={link.href}
+						target="_blank"
+						rel="noopener noreferrer"
+						class="group flex items-center gap-2 rounded-full px-4 py-2 transition-all duration-300 hover:bg-white/10"
+					>
+						<Icon icon={link.icon} class="text-lg text-base-content/80 group-hover:text-primary" />
+
+						<span
+							class="hidden text-sm tracking-wide text-base-content/80 uppercase transition-colors group-hover:text-primary sm:inline"
+						>
+							{link.label}
+						</span>
+					</a>
+				{/each}
+			</nav>
+		</div>
+
+		<div
+			class="flex w-full justify-center text-[9px] tracking-widest text-base-content/40 uppercase transition-opacity duration-700"
+		>
+			© {new Date().getFullYear()} Bogdan Nesterenko
+		</div>
+	</div>
+</footer>
